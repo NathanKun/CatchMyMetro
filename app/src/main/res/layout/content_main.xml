@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.nathankun.catchmymetro.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <WebView
+        android:id="@+id/browser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/technopoleToSchool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/homeToRouen"
+        android:onClick="btn_onclick_technopoleToSchool"
+        android:text="@string/btn_technopoleToSchool" />
+
+    <Button
+        android:id="@+id/schoolToTechnopole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/technopoleToSchool"
+        android:layout_toEndOf="@+id/technopoleToSchool"
+        android:onClick="btn_onclick_schoolToTechnopole"
+        android:text="@string/btn_schoolToTechnopole" />
+
+    <Button
+        android:id="@+id/schoolToRouen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/technopoleToSchool"
+        android:layout_toEndOf="@+id/homeToSchool"
+        android:onClick="btn_onclick_schoolToHome"
+        android:text="@string/btn_schoolToHome" />
+
+    <Button
+        android:id="@+id/homeToRouen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:onClick="btn_onclick_homeToRouen"
+        android:text="@string/btn_homeToRouen" />
+
+    <Button
+        android:id="@+id/homeToSchool"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/schoolToRouen"
+        android:layout_alignBottom="@+id/schoolToRouen"
+        android:layout_alignParentStart="true"
+        android:onClick="btn_onclick_homeToSchool"
+        android:text="@string/btn_homeToSchool" />
+
+    <TextView
+        android:id="@+id/choosing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/browser"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp" />
+
+    <TextView
+        android:id="@+id/str"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/choosing"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

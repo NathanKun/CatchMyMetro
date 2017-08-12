@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">赶地铁</string>
+    <string name="action_settings">Nothing Here</string>
+    <string name="btn_homeToSchool">上学</string>
+    <string name="btn_schoolToHome">放学</string>
+    <string name="btn_homeToRouen">家去鲁昂</string>
+    <string name="btn_technopoleToSchool">上学巴士</string>
+    <string name="btn_schoolToTechnopole">放学巴士</string>
+</resources>
