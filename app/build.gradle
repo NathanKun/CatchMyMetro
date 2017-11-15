@@ -1,20 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    signingConfigs {
-        config {
-            keyAlias 'firstkey'
-            keyPassword '83783548jun'
-            storeFile file('C:/Users/NathanKun/AndroitApkKey/NathanKunKey.jks')
-            storePassword '83783548jun'
-        }
-    }
-    compileSdkVersion 25
-    buildToolsVersion '24.0.3'
+    compileSdkVersion 27
+    buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.nathankun.catchmymetro"
+        applicationId "com.nathankun.com.catprogrammer.catchmymetro"
         minSdkVersion 25
-        targetSdkVersion 25
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -23,7 +15,6 @@ android {
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
             debuggable true
         }
     }
@@ -34,8 +25,11 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.2.2'
-    compile 'com.android.support:design:25.2.2'
-    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:27.0.0'
+    compile 'com.android.support:design:27.0.0'
+    compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'org.jsoup:jsoup:1.10.1'
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.10.1'
+
 }
