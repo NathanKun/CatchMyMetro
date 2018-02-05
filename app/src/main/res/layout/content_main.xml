@@ -46,15 +46,6 @@
         android:text="@string/btn_schoolToHome" />
 
     <Button
-        android:id="@+id/homeToRouen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:onClick="btn_onclick_homeToRouen"
-        android:text="@string/btn_homeToRouen" />
-
-    <Button
         android:id="@+id/homeToSchool"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

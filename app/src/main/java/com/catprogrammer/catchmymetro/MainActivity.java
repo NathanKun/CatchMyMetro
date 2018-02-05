@@ -15,7 +15,6 @@ import com.loopj.android.http.RequestParams;
 import com.nathankun.catchmymetro.R;
 
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 tw_choosing.setText(R.string.btn_homeToSchool);
                 params.put("sens", "1");
                 params.put("destinations", "{\"1\":\"Technopôle SAINT-ETIENNE-DU-ROUVRAY\"}");
-                params.put("stopId", "100783");
+                params.put("stopId", "101065    ");
                 params.put("lineId", "175");
                 break;
             case SCHOOLTOHOME:
@@ -131,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
         AstuceApiClient.post(params, new AsyncHttpResponseHandler() {
             private TextView tv;
 
-            public AsyncHttpResponseHandler init(TextView tv) {
+            AsyncHttpResponseHandler init(TextView tv) {
                 System.out.println("builded");
                 this.tv = tv;
                 return this;
@@ -139,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                String responseStr;
+                StringBuilder responseStr;
                 Element body;
                 try {
                     body = Jsoup.parseBodyFragment(new String(responseBody, "UTF-8")).body();
@@ -148,25 +147,25 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
 
-                responseStr = body.getElementsByTag("span").get(0).text();
+                responseStr = new StringBuilder(body.getElementsByTag("span").get(0).text());
 
                 Elements lis = body.getElementsByTag("li");
-                List<String> lisStr = new ArrayList<String>();
+                List<String> lisStr = new ArrayList<>();
 
                 for (Object e : lis.toArray()) {
                     lisStr.add(((Element) e).text());
                 }
 
                 for(String li : lisStr) {
-                    responseStr = responseStr + "\n";
+                    responseStr.append("\n");
                     if(li.contains("temps réel")) {
-                        responseStr = responseStr + li.replace("temps réel", "实时：");
+                        responseStr.append(li.replace("temps réel", "实时："));
                     }else {
-                        responseStr = responseStr + "非实时：" + li;
+                        responseStr.append("非实时：").append(li);
                     }
                 }
 
-                tv.setText(responseStr);
+                tv.setText(responseStr.toString());
             }
 
             @Override
@@ -175,8 +174,6 @@ public class MainActivity extends AppCompatActivity {
                 String body = null;
                 try {
                     body = Jsoup.parseBodyFragment(new String(responseBody, "UTF-8")).body().text();
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
